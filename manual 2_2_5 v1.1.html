@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가경국민체육센터 기술 매뉴얼</title>
+    <style>
+    /* Reset 기본 스타일 (브라우저 기본값 초기화) */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, th, td, img {
+    margin: 0; /* 기본 margin 값 제거 */
+    padding: 0; /* 기본 padding 값 제거 */
+    border: 0; /* 기본 border 값 제거 */
+    font-size: 100%; /* 기본 font-size 값 설정 */
+    vertical-align: baseline; /* 기본 수직 정렬 방식 설정 */
+    box-sizing: border-box; /* padding과 border를 요소 크기 계산에 포함시킴 */
+}
+
+/* Reset 스타일 후 기본 레이아웃 */
+body {
+    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
+    line-height: 1.6; /* 줄 간격 설정 */
+    background-color: #f5f5f5; /* 배경색 설정 */
+    color: #333; /* 기본 텍스트 색상 설정 */
+    padding: 20px; /* 페이지 내 여백 설정 */
+}
+
+/* 사이드바 */
+.sidebar {
+    position: fixed; /* 고정 위치 설정 */
+    top: 0;
+    left: -6cm; /* 사이드바 숨기기 */
+    width: 6cm; /* 사이드바 너비 */
+    height: 100vh; /* 화면 높이에 맞추기 */
+    background-color: #f9f9f9;
+    transition: left 0.3s ease; /* 마우스를 올렸을 때 부드럽게 펼쳐짐 */
+    z-index: 2; /* 사이드바가 메인 콘텐츠 위로 오도록 설정 */
+    padding: 10px; /* 사이드바 내측 여백 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 마우스를 사이드바 근처에 가져갔을 때 사이드바가 나타나도록 설정 */
+.sidebar:hover {
+    left: 0; /* 사이드바가 펼쳐짐 */
+    overflow-y: auto; /* 펼쳐졌을 때만 스크롤이 나타나도록 설정 */
+}
+
+/* 사이드바 안의 목록 스타일 */
+.sidebar ul {
+    list-style-type: none; /* 기본 불릿 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* 마우스 오버 시 링크의 배경색 변경 */
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    margin-left: 0; /* 사이드바 너비 만큼 왼쪽 여백 설정 */
+    padding: 20px; /* 내측 여백 설정 */
+    background-color: #ffffff; /* 배경색 설정 */
+    border: 1px solid #ddd; /* 테두리 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    position: relative; /* 상대 위치 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤바 추가 */
+    height: 100vh; /* 화면 높이에 맞추기 */
+    transition: margin-left 0.3s ease; /* 사이드바가 펼쳐지면 메인 콘텐츠가 오른쪽으로 밀리도록 설정 */
+}
+
+/* 제목 */
+.main-content h1 {
+    background-color: #0056b3; /* 제목 배경색 설정 */
+    color: #ffffff; /* 제목 텍스트 색상 설정 */
+    text-align: center; /* 제목 가운데 정렬 */
+    padding: 15px; /* 제목 내측 여백 설정 */
+    font-size: 2em; /* 제목 글꼴 크기 설정 */
+    margin-bottom: 20px; /* 제목 아래 여백 설정 */
+}
+
+.main-content h6 {
+    background-color: #0056b3; /* 배경색 설정 */
+    color: white; /* 텍스트 색상 설정 */
+    padding: 10px; /* 내측 여백 설정 */
+    float: right; /* 오른쪽 정렬 */
+    font-size: 0.8em; /* 글꼴 크기 설정 */
+    margin: 0; /* 마진 제거 */
+}
+
+/* 기본 텍스트 */
+.main-content p {
+    margin: 10px 0; /* 텍스트 상하 여백 설정 */
+    line-height: 1.8; /* 줄 간격 설정 */
+}
+
+/* 테이블 */
+.main-content table {
+    width: 100%; /* 테이블 너비를 100%로 설정 */
+    max-width: 100%; /* 화면 크기에 맞춰 최대 너비 설정 */
+    table-layout: fixed; /* 테이블 셀 크기를 일정하게 유지 */
+    margin: 20px 0; /* 테이블 상하 여백 설정 */
+}
+
+/* 테이블 셀 스타일 */
+.main-content table th,
+.main-content table td {
+    border: 1px solid #ccc; /* 테이블 셀 경계선 설정 */
+    padding: 10px; /* 셀 내측 여백 설정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* 테이블 헤더 스타일 */
+.main-content table th {
+    background-color: #f1f1f1; /* 헤더 셀 배경색 설정 */
+    font-weight: bold; /* 헤더 셀 텍스트 굵게 설정 */
+    text-align: center; /* 헤더 셀 텍스트 가운데 정렬 */
+}
+
+/* 이미지 */
+.main-content img {
+    max-width: 100%; /* 이미지 최대 너비를 100%로 설정 */
+    height: auto; /* 이미지의 비율을 유지한 채로 높이를 자동 조정 */
+    margin: 10px 0; /* 이미지 상하 여백 설정 */
+}
+
+/* 업데이트 현황 테이블 스타일 */
+#updateContainer, #facilityContainer {
+    max-height: 300px; /* 고정 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* 숨겨진 콘텐츠 스타일 */
+.hidden {
+    display: none;
+}
+
+/* 버튼 스타일 */
+.toggle-button {
+    padding: 10px;
+    background-color: #ffffff; /* 기본 배경색 */
+    color: #333; /* 기본 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 클릭 가능한 손 모양 */
+    font-size: 16px; /* 글씨 크기 */
+    width: auto; /* 버튼 너비 자동 */
+    border-radius: 10px; /* 둥근 모서리 */
+    transition: background-color 0.3s, border 0.3s, color 0.3s; /* 배경, 테두리, 텍스트 색상에 대한 전환 효과 */
+}
+
+/* 마우스 오버 시 스타일 */
+.toggle-button:hover {
+    background-color: #0056b3; /* 배경색을 파란색으로 */
+    border-color: #0056b3; /* 테두리 색도 파란색으로 변경 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 클릭 시 활성화된 상태 (사이드바 강조 효과처럼) */
+.toggle-button.active {
+    background-color: #0056b3; /* 강조된 배경색 */
+    border-color: #0056b3; /* 강조된 테두리 색 */
+    color: white; /* 강조된 텍스트 색상 */
+}
+
+/* 모바일 화면에서 테이블 크기 조정 */
+@media (max-width: 768px) {
+    .main-content {
+        font-size: 2vw; /* 화면 크기가 작아지면 글씨 크기 축소 */
+    }
+
+    .main-content table {
+        font-size: 12px; /* 모바일 화면에서는 테이블 글꼴 크기 줄임 */
+    }
+
+    .sidebar {
+        width: 100%; /* 모바일 화면에서는 사이드바 너비를 100%로 설정 */
+    }
+}
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* 모바일에서는 사이드바 너비를 100%로 설정 */
+    }
+
+    .main-content {
+        margin-left: 0; /* 모바일에서는 사이드바가 없으므로 여백을 제거 */
+    }
+}
+
+/* 기본 상태에서 1.1., 1.2. 번호와 텍스트를 강조 */
+.highlight-text {
+    font-weight: bold; /* 글씨 굵게 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 배경색과 텍스트 색상의 부드러운 전환 */
+}
+
+/* 목차 항목에 마우스를 올렸을 때 강조 효과 */
+ul li h3 {
+    display: inline-block; /* 텍스트만큼 너비가 자동으로 설정되도록 함 */
+    padding: 5px 10px; /* 좌우 여백만 설정 (상하 여백은 없애고) */
+}
+
+ul li h3:hover {
+    background-color: #0056b3; /* 배경색을 파란색으로 변경 */
+    color: white; /* 텍스트 색상은 흰색으로 변경 */
+    border-radius: 5px; /* 테두리 둥글게 처리 */
+    border: 1px solid #0056b3; /* 테두리를 파란색으로 설정 */
+}
+
+/* 목차 항목의 링크 텍스트에 마우스를 올렸을 때 효과 */
+ul li h3:hover .arrow {
+    color: white; /* 화살표 색상을 흰색으로 변경 */
+}
+
+</style>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <!-- 목차 영역 -->
+        <div class="sidebar">
+            <a id="section2.2.5" href="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\통합운영매뉴얼 v1.07.html" target="_blank">전화면으로</a>
+            <h2>목차</h2>
+            <ul>
+                <li><a href="#section1" onclick="toggleSection('skill1')"><span class="highlight">1.</span> 기계</a>
+                    <ul>
+                        <li style="margin-left: 10px;"><a href="#section1-1" onclick="toggleSection('skill 1.1.')"><span class="highlight">1.1</span> 보일러</a></li>
+                        <li style="margin-left: 10px;"><a href="#section1-2" onclick="toggleSection('skill 1.2.')"><span class="highlight">1.2</span> 수영장 제어설비</a></li>
+                        <li style="margin-left: 10px;"><a href="#section1-3" onclick="toggleSection('skill 1.3.')"><span class="highlight">1.3</span> 온수가열기</a></li>
+                        <li style="margin-left: 10px;"><a href="#section1-4" onclick="toggleSection('skill 1.4.')"><span class="highlight">1.4</span> 공조기</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#section2" onclick="toggleSection('skill2')"><span class="highlight">2.</span> 전기</a>
+                    <ul>
+                        <li style="margin-left: 10px;"><a href="#section2-1" onclick="toggleSection('skill 2.1.')"><span class="highlight">2.1.</span> 정전</a></li>
+                        <li style="margin-left: 10px;"><a href="#section2-1" onclick="toggleSection('skill 2.2.')"><span class="highlight">2.2.</span> 복전</a></li>
+                        <li style="margin-left: 10px;"><a href="#section2-1" onclick="toggleSection('skill 2.3.')"><span class="highlight">2.3.</span> 기타</a></li>
+                            <ul style="margin-left: 10px;"> <!-- 내어쓰기 적용 -->
+                                <li style="margin-left: 0px;"><a href="#section2-1-1" onclick="toggleSection('skill 2.3.1.')"><span class="highlight">2.3.1.</span> 기타 주요 업무</a></li>
+                            </ul>
+                    </ul>   
+                </li>
+                <li><a href="#section2" onclick="toggleSection('skill3')"><span class="highlight">3.</span> 소방</a>
+                    <ul>
+                        <li style="margin-left: 10px;">
+                            <a href="#section2-1" onclick="toggleSection('admin0')"><span class="highlight">3.1.</span> 화재감지기 작동 및<br><span style="margin-left: 21px; line-height: 1.2;">화재발생 대응</span></a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#section2" onclick="toggleSection('skill4')"><span class="highlight">4.</span> 수질</a>
+                    <ul>
+                        <li style="margin-left: 10px;"><a href="#section4-1" onclick="toggleSection('admin0')"><span class="highlight">4.1.</span> 수영장 수질 자동측정 장치</a>
+                        <li style="margin-left: 10px;"><a href="#section4-1" onclick="toggleSection('admin0')"><span class="highlight">4.2.</span> 수영장 염소 측정</a>
+                            <ul style="margin-left: 10px;"> <!-- 내어쓰기 적용 -->
+                                <li style="margin-left: 0px;"><a href="#section4-2-1" onclick="toggleSection('cheongju1')"><span class="highlight">4.2.1.</span> 비색계 측정</a></li>
+                                <li style="margin-left: 0px;"><a href="#section4-2-2" onclick="toggleSection('cheongju1')"><span class="highlight">4.2.2.</span> 시약 측정</a></li>
+                            </ul>
+                        <li style="margin-left: 10px;"><a href="#section4-3" onclick="toggleSection('admin0')"><span class="highlight">4.3.</span> 수영장 약품 관리</a>
+                            <ul style="margin-left: 10px;"> <!-- 내어쓰기 적용 -->
+                                <li style="margin-left: 0px;"><a href="#section4-3-1" onclick="toggleSection('cheongju1')"><span class="highlight">4.3.1.</span> 종류</a></li>
+                                <li style="margin-left: 0px;"><a href="#section4-3-2" onclick="toggleSection('cheongju1')"><span class="highlight">4.3.2.</span> 관리 주기</a></li>
+                            </ul>
+                        <li style="margin-left: 10px;"><a href="#section4-4" onclick="toggleSection('admin0')"><span class="highlight">4.4.</span> 수영장 배수</a>
+                        <li style="margin-left: 10px;"><a href="#section4-5" onclick="toggleSection('admin0')"><span class="highlight">4.5.</span> 수영장 담수</a>
+                        <li style="margin-left: 10px;"><a href="#section4-6" onclick="toggleSection('admin0')"><span class="highlight">4.6.</span> 수영장 수온 관리</a>   
+                    </ul>     
+                </li>
+                <li><a href="#section2" onclick="toggleSection('skill5')"><span class="highlight">5.</span> 가스</a>
+                </li>
+                <li><a href="#section2" onclick="toggleSection('skill6')"><span class="highlight">6.</span> 건축</a>
+                </li>
+                <li><a href="#section2" onclick="toggleSection('skill7')"><span class="highlight">7.</span> 기타 주요 업무</a>
+                </li>
+                <li><a href="#section2" onclick="toggleSection('skill8')"><span class="highlight">8.</span> 업체 연락처</a>
+                </li>
+                                    
+            </ul>
+        </div>
+    
+        <!-- 메인 콘텐츠 영역 -->
+        <div class="main-content">
+            <h6>
+                v: 1.04 (2024-11-03)<br>
+                creator: 박영규, 박현수
+            </h6>
+            <h1>가경국민체육센터 기술분야 매뉴얼</h1>
+                <script>
+                    function toggleTable(tableId, buttonId) {
+                        const table = document.getElementById(tableId);
+                        const button = document.getElementById(buttonId);
+                
+                        // Toggle the 'hidden' class on the table to show or hide it
+                        table.classList.toggle("hidden");
+                
+                        // Update the button text based on the table's visibility
+                        if (table.classList.contains("hidden")) {
+                            button.textContent = buttonId === "toggleUpdateButton" ? "업데이트 현황 [펼치기·접기]" : "시설현황 [펼치기·접기]";
+                        } else {
+                            button.textContent = buttonId === "toggleUpdateButton" ? "업데이트 현황 [펼치기·접기]" : "시설현황 [펼치기·접기]";
+                        }
+                    }
+                </script>
+                <div class="toggle-button" id="toggleUpdateButton" onclick="toggleTable('updateContainer', 'toggleUpdateButton')" style="text-align: center; margin: 20px auto 0 auto; width: fit-content;">
+                    업데이트 현황 [펼치기·접기]
+                </div>
+            <div id="updateContainer" class="hidden">
+                <table id="mainTableupdate" style="border-collapse: collapse; width: 100%;">
+                    <tr>
+                        <th style="width: 5%; text-align: center;">버전</th>
+                        <th style="width: 10%;">날짜</th>
+                        <th style="width: 85%;">내용</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.04</td>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.11.07</td>
+                        <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                            - 업데이트 현황 추가 및 구현<br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.2</td>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.12.21</td>
+                        <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                            - 보일러 운전 매뉴얼 구현<br>
+                            - 수영장 제어설비 구현<br>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.06</td>
+                        <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.11.</td>
+                        <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                            - <br>
+                            - <br>
+                            - <br>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">1.07</td>
+                        <td style="text-align: center;">24.11.</td>
+                        <td style="text-align: left;">
+                            - <br>
+                            - <br>
+                            - <br>
+
+                    </tr>
+                </table>
+            </div>  
+            
+            <h2 id="section2" onclick="toggleSection('skill2')">1. 기계</h2>
+                                    
+
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li class="underline" style="margin-left: 5px;">
+                    <h3 id="section1-1" onclick="toggleSection('section1_1_content')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.1. 보일러
+                    </h3>
+                    <!-- 내용 영역 (처음에는 숨겨짐) -->
+                    <div id="section1_1_content" class="content hidden" style="margin-left: 5px;">
+                        <!-- iframe을 사용해 외부 HTML 파일을 불러오기 -->
+                        <iframe src="file:///C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5_1_1.html"" 
+                                width="100%" 
+                                height="800px" 
+                                style="border: none; overflow: hidden; max-width: 100%; box-sizing: border-box;"></iframe>
+                    </div>
+                </li>
+            </ul>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <script>
+                function toggleSection(sectionId) {
+                    // sectionId에 해당하는 div를 찾음
+                    const contentDiv = document.getElementById(sectionId);
+                    
+                    // 해당 div의 클래스를 토글하여 보이거나 숨김 처리
+                    contentDiv.classList.toggle('hidden');
+            
+                    // 화살표 방향을 바꿈
+                    const arrow = contentDiv.previousElementSibling.querySelector('.arrow');
+                    if (contentDiv.classList.contains('hidden')) {
+                        arrow.classList.remove('expanded');
+                        arrow.classList.add('collapsed');
+                    } else {
+                        arrow.classList.remove('collapsed');
+                        arrow.classList.add('expanded');
+                    }
+                }
+            </script>
+            
+            <style>
+                .content.hidden {
+                    display: none; /* 내용이 숨겨지도록 설정 */
+                }
+            
+                .arrow {
+                    display: inline-block;
+                    transition: transform 0.3s ease;
+                }
+            
+                .collapsed {
+                    transform: rotate(0deg); /* 오른쪽 화살표 */
+                }
+            
+                .expanded {
+                    transform: rotate(90deg); /* 아래쪽 화살표 */
+                }
+            </style>
+            
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li class="underline" style="margin-left: 5px;">
+                    <h3 id="section1-2" onclick="toggleSection('section1_2_content')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.2. 수영장 제어설비
+                    </h3>
+                    <!-- 내용 영역 (처음에는 숨겨짐) -->
+                    <div id="section1_2_content" class="content hidden" style="margin-left: 5px;">
+                        <!-- iframe을 사용해 외부 HTML 파일을 불러오기 -->
+                        <iframe src="file:///C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5_1_2.html"" 
+                                width="100%" 
+                                height="800px" 
+                                style="border: none; overflow: hidden; max-width: 100%; box-sizing: border-box;"></iframe>
+                    </div>
+                </li>
+            </ul>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li class="underline" style="margin-left: 5px;">
+                    <h3 id="section1-3" onclick="toggleSection('section1_3_content')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.3. 온수가열기
+                    </h3>
+                    <!-- 내용 영역 (처음에는 숨겨짐) -->
+                    <div id="section1_3_content" class="content hidden" style="margin-left: 5px;">
+                        <!-- iframe을 사용해 외부 HTML 파일을 불러오기 -->
+                        <iframe src="file:///C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5_1_3.html"" 
+                                width="100%" 
+                                height="800px" 
+                                style="border: none; overflow: hidden; max-width: 100%; box-sizing: border-box;"></iframe>
+                    </div>
+                </li>
+            </ul>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li class="underline" style="margin-left: 5px;">
+                    <h3 id="section1-4" onclick="toggleSection('section1_4_content')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.4. 공조기
+                    </h3>
+                    <!-- 내용 영역 (처음에는 숨겨짐) -->
+                    <div id="section1_4_content" class="content hidden" style="margin-left: 5px;">
+                        <!-- iframe을 사용해 외부 HTML 파일을 불러오기 -->
+                        <iframe src="file:///C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5_1_4.html"" 
+                                width="100%" 
+                                height="800px" 
+                                style="border: none; overflow: hidden; max-width: 100%; box-sizing: border-box;"></iframe>
+                    </div>
+                </li>
+            </ul>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li class="underline" style="margin-left: 20px;">
+                    <h3 id="section1-3" onclick="toggleSection('skill 1.3.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.3. 온수가열기
+                    </h3>
+                </li>
+            </ul>
+                    
+
+                    <h3 id="section1-3" onclick="toggleSection('skill 1.3.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.3. 온수가열기
+                    </h3>
+
+                        <div id="skill 1.3." class="content hidden" style="margin-left: 20px;">
+                            <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                        </div>
+
+                    <h3 id="section1-4" onclick="toggleSection('skill 1.4.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 1.4. 공조기
+                    </h3>
+
+                        <div id="skill 1.4." class="content hidden" style="margin-left: 20px;">
+                            <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                        </div>
+                
+                </li>
+            </ul>
+
+            <h2 id="section2" onclick="toggleSection('skill2')">2. 전기</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                    <h3 id="section2-1" onclick="toggleSection('skill 2.1.')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 2.1. 정전
+                    </h3>
+    
+                    <!-- 펼치기/접기 내용 영역 -->
+                        <div id="skill 2.1." class="content hidden" style="margin-left: 20px;">
+                            <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                        </div>
+
+                    <h3 id="section2-2" onclick="toggleSection('skill 2.2.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 2.2. 복전
+                    </h3>
+
+                        <div id="skill 2.2." class="content hidden" style="margin-left: 20px;">
+                            <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                        </div>
+
+                    <h3 id="section2-3" onclick="toggleSection('skill 2.3.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 2.3. 기타
+                    </h3>
+
+                        <div id="skill 1.3." class="content hidden" style="margin-left: 20px;">
+                            <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                        </div>
+                
+                </li>
+            </ul>
+
+            <h2 id="section3" onclick="toggleSection('skill3')">3. 소방</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                    <h3 id="section3-1" onclick="toggleSection('skill 3.1.')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 3.1. 화재감지기 작동 및 화재발생 대응
+                    </h3>
+    
+                    <!-- 펼치기/접기 내용 영역 -->
+                        <div id="skill 3.1." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+
+                                <tr>
+                                          <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주요구성</th>
+                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                            
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">화재발생 대응</th>
+                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                            <li>화재경보가 발생하였을 경우 4층에 있는 P형 복합 수신기로 이동</li>
+                                            <li>지구경종정지,주음양정지,스위치잠금,시각경보,비상방송,사이렌,확인음향 순으로 활성화</li>
+                                            <li>화재경보기가 울리는 장소 확인</li>
+                                            <li>화재경보기가 오류일 경우 복구 선택</li>
+                                            <li>실제 화재일 경우 역순으로 비활성화 후 화재 방송</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                </li>
+            </ul>
+
+            <h2 id="section4" onclick="toggleSection('skill4')">4. 수질</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                    <h3 id="section4-1" onclick="toggleSection('skill 4.1.')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 4.1. 수영장 수질 자동측정 장치
+                    </h3>
+    
+                    <!-- 펼치기/접기 내용 영역 -->
+                        <div id="skill 4.1." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">세부사항</th> <!-- white-space: nowrap 글씨 길이에 맞춰 너비 자동 조정 -->
+                                                    <td style="border: 1px solid #ccc; padding: 10px;">
+
+                                                        <table style="width: 100%; border-collapse: collapse; margin: 0; text-align: center;">
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">기기명세</th>
+                                                        </table>
+                                                        <table style="width: 100%; border-collapse: collapse; margin: 0; text-align: center;">
+                                                            <tr>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">종류</th>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">형식</th>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">제조사</th>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">모델번호</th>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">A/S 연락처</th>
+                                                            <th style="border: 1px solid #ccc; padding: 10px; text-align: center; white-space: nowrap;">비고</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;">염소측정장치</td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;">프로미넌트</td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                            </tr>
+                                                            <tr style="border: 1px solid #ccc; padding: 10px;">
+                                                                <td style="border: 1px solid #ccc; padding: 10px;">PH측정장치</td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;">프로미넌트</td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                                <td style="border: 1px solid #ccc; padding: 10px;"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주요구성</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                <!-- 내용 -->
+                                                                </tr>
+                                                            </table>
+                                                </tr>
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">설정방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <!-- 내용 -->
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    <h3 id="section4-2" onclick="toggleSection('skill 4.2.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 4.2. 수영장 염소 측정
+                    </h3>
+
+                        <div id="skill 4.2." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주요구성</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <li>수영장의 염소 수치는 물의 위생 상태를 유지하고 박테리아와 유기물을 제거하기 위해 매우 중요한 요소입니다. 염소 수치는 수영장 물의 살균 효과를 보장하면서도 사용자에게 안전해야 합니다. 일반적으로 다음과 같은 기준이 권장됩니다:</li>
+                                                                    <li>염소 적정 범위</li>
+                                                                        <ul style="list-style-type: circle; padding-left: 20px; margin-top: 10px;">
+                                                                            <li><span style="color: blue; font-weight: bold;">자유염소</span>: 0.4 ~ 1.0 ppm</li>
+                                                                            <li><span style="color: blue; font-weight: bold;">결함염소</span>: 0.5 ppm 이하</li>
+                                                                        </ul>
+                                                                    <li>하루에 3번 측정을 하여 적정값 유지</li>
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">측정방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">비색계측정</th>
+                                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                            <li>비색계 용기에 샘플 물을 1/3 정도 채워 주세요.</li>
+                                                                            <li>물에 약품을 6방울 정도 떨어뜨립니다. </li>
+                                                                            <li>측정기기를 빛이 잘 보이는 곳으로 향하게 하여 랜즈를 통하여 측정합니다.</li>
+                                                                            <li>옆에 있는 샘플 색을 비교를 하며 염소 측정을 합니다.</li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">가루약측정</th>
+                                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                            <li>용기에 10mL를 채취합니다.</li>   
+                                                                            <li>측정기기의 전원을 켠 뒤, 측정 방법을 선택합니다: [Free Cl (powder)] 또는 [Total Cl (powder)]</li>
+                                                                            <li>용기를 측정기에 넣고 Zero 값을 설정합니다.</li>
+                                                                            <li>용기에 시약을 투입한 후, 가루가 완전히 녹을 때까지 흔듭니다.</li>
+                                                                            <li>용기를 다시 측정기에 넣고 측정합니다.</li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    <h3 id="section4-3" onclick="toggleSection('skill 4.3.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 4.3. 수영장 약품관리
+                    </h3>
+
+                        <div id="skill 4.3." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주요구성</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <li><span style="color: blue; font-weight: bold;">PH감소제</span>
+                                                                        <sup>
+                                                                            <span class="tooltip" style="color: blue;">[1]
+                                                                                <span class="tooltip-text">pH 감소제는 수영장 물의 pH가 높은 경우 이를 낮춰 적정 범위(7.2~7.8)로 조정하는 데 사용되는 약품입니다.<br>
+                                                                                    
+                                                                            </span>
+                                                                        </sup></li>
+
+                                                                    <li><span style="color: blue; font-weight: bold;">응집제(매직풀900)</span>
+                                                                        <sup>
+                                                                            <span class="tooltip" style="color: blue;">[1]
+                                                                                <span class="tooltip-text">응집제는 수영장 물 속의 미세한 입자와 불순물을 뭉쳐 더 큰 덩어리(플록, Floc)를 형성하도록 돕는 화학 물질입니다. 이 과정으로 물속에 떠다니는 불순물을 제거해 물을 맑고 깨끗하게 유지합니다.<br>
+                                                                                </span>
+                                                                        </sup></li>
+
+                                                                        <li><span style="color: blue; font-weight: bold;">매직쇼크</span>
+                                                                            <sup>
+                                                                                <span class="tooltip" style="color: blue;">[1]
+                                                                                    <span class="tooltip-text">매직쇼크는 수영장 물의 상태를 급격히 개선하기 위해 사용하는 강력한 산화제입니다. 주로 수영장 물 속에 축적된 유기물, 결합 염소, 조류 등을 제거하고 염소의 소독 효과를 회복시키는 데 사용됩니다.<br>
+                                                                                        <br>
+                                                                                        매직쇼크의 주요 기능<br>
+                                                                                        <br>
+                                                                                        &nbsp;1. 탁도개선<br>
+                                                                                        &nbsp;&nbsp;· 물속 불순물 산화 및 제거로 맑은 물 유지.<br>
+                                                                                        &nbsp;2. 염소 수치 균형<br>
+                                                                                        &nbsp;&nbsp;· 결합 염소 감소 → 자유 염소 증가 → 살균력 회복<br>
+                                                                                        &nbsp;&nbsp;· 소독제의 효율 극대화.<br>
+                                                                                    </span>
+                                                                            </sup></li>   
+                                                                        <li><span style="color: blue; font-weight: bold;">중화제(매직풀20)</span>
+                                                                        <sup>
+                                                                            <span class="tooltip" style="color: blue;">[1]
+                                                                                <span class="tooltip-text">주로 수영장 물의 pH가 지나치게 높거나 낮을 때 이를 조절하는 데 사용되며, 알칼리성 중화제입니다. <br>
+                                                                                    
+                                                                                </span>
+                                                                        </sup></li> 
+                                                                             
+                                                                    <li><span style="color: blue; font-weight: bold;">차아염소산나트륨(매직풀)</span>
+                                                                        <sup>
+                                                                            <span class="tooltip" style="color: blue;">[1]
+                                                                                <span class="tooltip-text">차아염소산나트륨(NaOCl)은 염소 소독제의 주성분으로, 수영장 물을 소독하는 데 자주 사용됩니다. 주로 물속의 박테리아, 바이러스, 곰팡이, 조류 등을 살균하거나 소독하는 데 매우 효과적인 화학 물질입니다.<br>
+                                                                                </span>
+                                                                        </sup></li> 
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">사용방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">PH감소제</th>
+                                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                            <li>설명</li>
+                                                                        </ul>
+                                                                    </td>
+                                                                    
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    <h3 id="section4-4" onclick="toggleSection('skill 4.4.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 4.4. 수영장 배수
+                    </h3>
+
+                        <div id="skill 4.4." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                <!-- 내용 -->
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                     <h3 id="section4-5" onclick="toggleSection('skill 4.5.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 4.5. 수영장 담수
+                    </h3>
+
+                        <div id="skill 4.5." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                <!-- 내용 -->
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                     <h3 id="section4-6" onclick="toggleSection('skill 4.6.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 4.6. 수영장 수온 관리
+                    </h3>
+
+                        <div id="skill 4.6." class="content hidden" style="margin-left: 20px;">
+                            <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                <tr>
+                                    
+                                    <td>
+                                        <div id="detailTable0" class="details">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주요구성</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                <!-- 내용 -->
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">방법</th>
+                                                    <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                        <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                            <table style="width: 100%; border-collapse: collapse;">
+                                                                <tr>
+                                                                    <li>수영장 열교환기의 환수온도를 설정한다.</li>
+                                                                    <li>수영장 밸브를 조절하여 올라가는 속도를 조절한다.</li>
+                                                                </tr>
+                                                            </table>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                
+                </li>
+            </ul>
+
+            <h2 id="section5" onclick="toggleSection('skill5')">5. 가스</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                
+                </li>
+            </ul>
+
+            <h2 id="section6" onclick="toggleSection('skill6')">6. 건축</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                
+                </li>
+            </ul>
+
+            <h2 id="section7" onclick="toggleSection('skill7')">7. 기타 주요업무</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                
+                </li>
+            </ul>
+
+            <h2 id="section8" onclick="toggleSection('skill8')">8. 업체 연락처</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li lass="underline" style="margin-left: 20px;">
+                    <h3 id="section8-1" onclick="toggleSection('skill 8.1.')" style="cursor: pointer;">
+                        <span class="arrow collapsed">></span> 8.1. 업체 연락처
+                        </h3>
+        
+                        <!-- 펼치기/접기 내용 영역 -->
+                            <div id="skill 8.1." class="content hidden" style="margin-left: 20px;">
+                                <table style="width: 80%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                                    <tr>
+                                        
+                                        <td>
+                                            <div id="detailTable0" class="details">
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">보일러</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                    010-3438-9524 이기쁨 기사(보일러 서비스)<br>
+                                                                    010-3232-6954 박홍주 이사(보일러시운전)
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">건축 시공사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                    010-5504-6647 서원택 차장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">기계설비</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                    010-4067-8270 한상용 소장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">전기시공사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-7488-5822 이병철 부장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">에어컨 신규 설치 관련 전기공사 견적</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-4602-1839 맹주성 부장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">수질현황 전관판</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-4578-4638 유익현 사장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">에어컨 이전설치</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8005-0844 이성진 과장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">카드단말기</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8327-2805 금융결제원
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">주차관제</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        043-233-1583 현정보
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">소방시공사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5462-3220 지은성 소장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">외벽패널</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8705-5837 김인선 대표
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">에어커튼</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-4025-3718 김순화 대표
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">통신 선로 공사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-9229-1181 정주훈 이사
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">로지 시스템</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8983-8504 서용주 주임
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">차염발생기</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-9412-2091 정찬호 과장(퇴수구 막힘)<br>
+                                                                        010-3208-9695 남진수 팀장(설치/관리)
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">역세 수처리설비 및 측정장비</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-7642-1018 이두성 차장
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">배구지주</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-6422-7367 안광욱대표
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">온수가열기</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8981-0322 박진수 팀장(영업)<br>
+                                                                        010-3411-6615 황춘기 차장(납품 시공)
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">보일러 설치검사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-6894-6031 송진석 대리
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">방충망</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5615-2199 김현호 대리<br>
+                                                                        010-5618-1341 이재빈 대리(A/S)
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">가스시공사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5218-0659 박정복 전무 <br>
+                                                                        010-4592-3621 필터청소
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">수위조절판</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8075-1945
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">배구지주</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-6422-7367 안광욱대표
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">sk통신망 설치</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8567-0852
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">전화설치</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5466-8039 김천웅 이사
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">방송장비 납품 및 서비스</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-2661-3683 이도희 대표
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">공조기</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-8901-8078 백종호 이사
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">Kt 통신사</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-9331-4563 
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">외부간판전기업체</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5461-2364 광운전력
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">외부간판업체</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-5483-9499 비즈디자인
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; padding: 10px; white-space: nowrap;">수영장 청소기</th>
+                                                        <td colspan="8" style="border: 1px solid #ccc; text-align: left;">
+                                                            <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        010-9231-4076 수영장 나라
+                                                                    </tr>
+                                                                </table>
+                                                            </ul>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                </li>
+            </ul>
+        
+            <script>
+                function toggleSection(sectionId) {
+                    var section = document.getElementById(sectionId);
+                    var arrow = section.previousElementSibling.querySelector('.arrow');
+                    var isExpanded = section.style.display === "block";
+    
+                if (isExpanded) {
+                section.style.display = "none";
+                arrow.classList.remove('expanded');
+                arrow.classList.add('collapsed');
+                } else {
+                section.style.display = "block";
+                arrow.classList.remove('collapsed');
+                arrow.classList.add('expanded');
+                }
+                }
+            </script>
+            <!-- 메인 콘텐츠 영역 -->
+    
+</div>
+    <!-- JavaScript 코드 -->
+    <script>
+        function openPopup(src) {
+            document.getElementById("popup-img").src = src;
+            document.getElementById("popup").style.display = "flex";
+        }
+    
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>
