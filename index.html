@@ -3,10 +3,1706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=skill1 v1.2.html"> <!-- 0초 후 about.html로 리디렉션 -->
-    <title>리디렉션</title>
+    <title>청주시시설관리공단 통합 매뉴얼</title>
+    <style>
+        /* Reset 기본 스타일 (브라우저 기본값 초기화) */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, th, td, img {
+    margin: 0; /* 기본 margin 값 제거 */
+    padding: 0; /* 기본 padding 값 제거 */
+    border: 0; /* 기본 border 값 제거 */
+    font-size: 100%; /* 기본 font-size 값 설정 */
+    vertical-align: baseline; /* 기본 수직 정렬 방식 설정 */
+    box-sizing: border-box; /* padding과 border를 요소 크기 계산에 포함시킴 */
+}
+
+/* Reset 스타일 후 기본 레이아웃 */
+body {
+    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
+    line-height: 1.6; /* 줄 간격 설정 */
+    background-color: #f5f5f5; /* 배경색 설정 */
+    color: #333; /* 기본 텍스트 색상 설정 */
+    padding: 20px; /* 페이지 내 여백 설정 */
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -6cm;
+    width: 6cm;
+    height: 100vh;
+    background-color: #f9f9f9;
+    transition: left 0.3s ease;
+    z-index: 2;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 사이드바 마우스를 올렸을 때 */
+.sidebar:hover {
+    left: 0;
+    overflow-y: auto;
+}
+
+/* ul 항목들이 세로로 나열되도록 설정 */
+.sidebar ul {
+    list-style-type: none; /* 불릿 점 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+/* li 항목들을 세로로 나열 */
+.sidebar ul li {
+    margin: 10px 0; /* 항목 간 간격 */
+    font-size: 0.9em;
+    font-weight: normal; /* 기본 글씨체 */
+}
+
+/* 링크 스타일 */
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* 마우스 오버 시 배경색 변화 */
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    margin-left: 0; /* 사이드바 너비 만큼 왼쪽 여백 설정 */
+    padding: 20px; /* 내측 여백 설정 */
+    background-color: #ffffff; /* 배경색 설정 */
+    border: 1px solid #ddd; /* 테두리 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    position: relative; /* 상대 위치 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤바 추가 */
+    height: 100vh; /* 화면 높이에 맞추기 */
+    transition: margin-left 0.3s ease; /* 사이드바가 펼쳐지면 메인 콘텐츠가 오른쪽으로 밀리도록 설정 */
+}
+
+/* 제목 */
+.main-content h1 {
+    background-color: #0056b3; /* 제목 배경색 설정 */
+    color: #ffffff; /* 제목 텍스트 색상 설정 */
+    text-align: center; /* 제목 가운데 정렬 */
+    padding: 15px; /* 제목 내측 여백 설정 */
+    font-size: 2em; /* 제목 글꼴 크기 설정 */
+    margin-bottom: 20px; /* 제목 아래 여백 설정 */
+}
+
+.main-content h6 {
+    background-color: #0056b3; /* 배경색 설정 */
+    color: white; /* 텍스트 색상 설정 */
+    padding: 10px; /* 내측 여백 설정 */
+    float: right; /* 오른쪽 정렬 */
+    font-size: 0.8em; /* 글꼴 크기 설정 */
+    margin: 0; /* 마진 제거 */
+}
+
+/* 기본 텍스트 */
+.main-content p {
+    margin: 10px 0; /* 텍스트 상하 여백 설정 */
+    line-height: 1.8; /* 줄 간격 설정 */
+}
+
+/* 테이블 */
+.main-content table {
+    width: 100%; /* 테이블 너비를 100%로 설정 */
+    max-width: 100%; /* 화면 크기에 맞춰 최대 너비 설정 */
+    table-layout: fixed; /* 테이블 셀 크기를 일정하게 유지 */
+    margin: 20px 0; /* 테이블 상하 여백 설정 */
+}
+
+/* 테이블 셀 스타일 */
+.main-content table th,
+.main-content table td {
+    border: 1px solid #ccc; /* 테이블 셀 경계선 설정 */
+    padding: 10px; /* 셀 내측 여백 설정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* 테이블 헤더 스타일 */
+.main-content table th {
+    background-color: #f1f1f1; /* 헤더 셀 배경색 설정 */
+    font-weight: bold; /* 헤더 셀 텍스트 굵게 설정 */
+    text-align: center; /* 헤더 셀 텍스트 가운데 정렬 */
+}
+
+/* 이미지 */
+.main-content img {
+    max-width: 100%; /* 이미지 최대 너비를 100%로 설정 */
+    height: auto; /* 이미지의 비율을 유지한 채로 높이를 자동 조정 */
+    margin: 10px 0; /* 이미지 상하 여백 설정 */
+}
+
+/* 업데이트 현황 테이블 스타일 */
+#updateContainer, #facilityContainer {
+    max-height: 300px; /* 고정 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* 숨겨진 콘텐츠 스타일 */
+.hidden {
+    display: none;
+}
+
+/* 버튼 스타일 */
+.toggle-button {
+    padding: 10px;
+    background-color: #ffffff; /* 기본 배경색 */
+    color: #333; /* 기본 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 클릭 가능한 손 모양 */
+    font-size: 16px; /* 글씨 크기 */
+    width: auto; /* 버튼 너비 자동 */
+    border-radius: 10px; /* 둥근 모서리 */
+    transition: background-color 0.3s, border 0.3s, color 0.3s; /* 배경, 테두리, 텍스트 색상에 대한 전환 효과 */
+}
+
+/* 마우스 오버 시 스타일 */
+.toggle-button:hover {
+    background-color: #0056b3; /* 배경색을 파란색으로 */
+    border-color: #0056b3; /* 테두리 색도 파란색으로 변경 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 클릭 시 활성화된 상태 (사이드바 강조 효과처럼) */
+.toggle-button.active {
+    background-color: #0056b3; /* 강조된 배경색 */
+    border-color: #0056b3; /* 강조된 테두리 색 */
+    color: white; /* 강조된 텍스트 색상 */
+}
+
+/* 모바일 화면에서 테이블 크기 조정 */
+@media (max-width: 768px) {
+    .main-content {
+        font-size: 2vw; /* 화면 크기가 작아지면 글씨 크기 축소 */
+    }
+
+    .main-content table {
+        font-size: 12px; /* 모바일 화면에서는 테이블 글꼴 크기 줄임 */
+    }
+
+    .sidebar {
+        width: 100%; /* 모바일 화면에서는 사이드바 너비를 100%로 설정 */
+    }
+}
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* 모바일에서는 사이드바 너비를 100%로 설정 */
+    }
+
+    .main-content {
+        margin-left: 0; /* 모바일에서는 사이드바가 없으므로 여백을 제거 */
+    }
+}
+
+/* 기본 상태에서 1.1., 1.2. 번호와 텍스트를 강조 */
+.highlight-text {
+    font-weight: bold; /* 글씨 굵게 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 배경색과 텍스트 색상의 부드러운 전환 */
+}
+
+/* 목차 항목에 마우스를 올렸을 때 강조 효과 */
+ul li h3 {
+    display: inline-block; /* 텍스트만큼 너비가 자동으로 설정되도록 함 */
+    padding: 5px 10px; /* 좌우 여백만 설정 (상하 여백은 없애고) */
+}
+
+ul li h3:hover {
+    background-color: #0056b3; /* 배경색을 파란색으로 변경 */
+    color: white; /* 텍스트 색상은 흰색으로 변경 */
+    border-radius: 5px; /* 테두리 둥글게 처리 */
+    border: 1px solid #0056b3; /* 테두리를 파란색으로 설정 */
+}
+
+/* 목차 항목의 링크 텍스트에 마우스를 올렸을 때 효과 */
+ul li h3:hover .arrow {
+    color: white; /* 화살표 색상을 흰색으로 변경 */
+}
+
+/* 테이블 스타일 */
+#mainTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* 테이블을 가로로 중앙 정렬 */
+    margin-top: 20px; /* 테이블이 상단에서 20px 아래에 나오도록 설정 */
+}
+
+/* 테이블 셀 스타일 */
+#mainTable th, #mainTable td {
+    text-align: center; /* 셀 내용 중앙 정렬 */
+    padding: 10px; /* 셀 안에 여백 추가 */
+    border: 1px solid #ccc; /* 셀 테두리 */
+}
+
+/* 아이콘 관련 */
+.info-icon {
+        display: inline-block;
+        width: 15px !important; /* 아이콘 너비 */
+        height: 15px !important; /* 아이콘 높이 */
+        margin-right: 10px;
+        vertical-align: middle;
+        }
+        .hidden {
+        display: none;
+        }
+
+
+    </style>
+
 </head>
 <body>
-    <p>잠시 후 <a href="skill1 v1.2.html">About 페이지로 이동합니다</a></p>
+
+<div class="container">
+    <!-- 목차 영역 -->
+    <div class="sidebar">
+        <h2>목차</h2>
+    <ul>
+        <li><a href="#section1" onclick="toggleSection('sisul')"><span class="highlight">1.</span> 시설</a>
+            <ul>
+                <li style="margin-left: 20px;">
+                    <a href="#section1-1" onclick="toggleSection('cheongju1')"><span class="highlight">1.1</span> 청주수영장</a>
+                </li>
+                <li style="margin-left: 20px;">
+                    <a href="#section1-2" onclick="toggleSection('purmi1')"><span class="highlight">1.2</span> 푸르미스포츠센터</a>
+                </li>
+                <li style="margin-left: 20px;">
+                    <a href="#section1-3" onclick="toggleSection('Young1')"><span class="highlight">1.3</span> 영운국민체육센터</a>
+                </li>
+                <li style="margin-left: 20px;">
+                    <a href="#section1-4" onclick="toggleSection('Bokdae1')"><span class="highlight">1.4</span> 복대국민체육센터</a>
+                </li>
+                <li style="margin-left: 20px;">
+                    <a href="#section1-5" onclick="toggleSection('Gagyeong1')"><span class="highlight">1.5</span> 가경국민체육센터</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#section2" onclick="toggleSection('manual2')"><span class="highlight">2.</span> 매뉴얼</a>
+            <ul>
+                <li style="margin-left: 20px;">
+                    <a href="#section2-1" onclick="toggleSection('admin0')"><span class="highlight">2.1.</span> 행정</a>
+                    <ul style="margin-left: 20px;">
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-1" onclick="toggleSection('admincheongju1')"><span class="highlight">2.1.1.</span> 청주수영장</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-2" onclick="toggleSection('adminpurmi1')"><span class="highlight">2.1.2.</span> 푸르미스포츠센터</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-3" onclick="toggleSection('adminyoung1')"><span class="highlight">2.1.3.</span> 영운국민체육센터</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-4" onclick="toggleSection('adminbokdae1')"><span class="highlight">2.1.4.</span> 복대국민체육센터</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-5" onclick="toggleSection('admingagyeong1')"><span class="highlight">2.1.5.</span> 가경국민체육센터</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-1-6" onclick="toggleSection('admincom')"><span class="highlight">2.1.6.</span> 공통</a>
+                        </li>
+                    </ul>
+                
+                    <ul>
+                        <li style="margin-left: -20px;">
+                            <a href="#section2-2" onclick="toggleSection('tech0')"><span class="highlight">2.2.</span> 기술</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-2-1" onclick="toggleSection('techcheongju1')"><span class="highlight">2.2.1.</span> 청주수영장</a>
+                        </li>    
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-2-2" onclick="toggleSection('techpurmi1')"><span class="highlight">2.2.2.</span> 푸르미스포츠센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-2-3" onclick="toggleSection('techyoung1')"><span class="highlight">2.2.3.</span> 영운국민체육센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-2-4" onclick="toggleSection('techbokdae1')"><span class="highlight">2.2.4.</span> 복대국민체육센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5 v1.1.html" onclick="toggleSection('techgagyeong1')">
+                                <span class="highlight">2.2.5.</span> 가경국민체육센터
+                            </a>
+                        </li>
+                        <li style="margin-left: -20px;">
+                            <a href="#section2-3" onclick="toggleSection('Physical0')"><span class="highlight">2.3.</span> 체육</a>
+                        </li>
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-3-1" onclick="toggleSection('phycheongju1')"><span class="highlight">2.3.1.</span> 청주수영장</a>
+                        </li>    
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-3-2" onclick="toggleSection('phypurmi1')"><span class="highlight">2.3.2.</span> 푸르미스포츠센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-3-3" onclick="toggleSection('phyyoung1')"><span class="highlight">2.3.3.</span> 영운국민체육센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-3-4" onclick="toggleSection('phybokdae1')"><span class="highlight">2.3.4.</span> 복대국민체육센터</a>
+                        </li> 
+                        <li style="margin-left: 0px;">
+                            <a href="#section2-3-5" onclick="toggleSection('phygagyeong1')"><span class="highlight">2.3.5.</span> 가경국민체육센터</a>
+                        </li> 
+                    </ul>
+    </li>
+    <li><a href="#section3" onclick="toggleSection('voc')"><span class="highlight">3.</span> VOC</a>
+        <ul>
+
+        </ul>
+    </li>
+    </ul>
+    </div>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <div class="main-content">
+        <h6>
+            v: 1.04 (2024-11-03)<br>
+            creator: 박영규, 박현수
+        </h6>
+        <h1>청주시시설관리공단 체육시설 통합 매뉴얼</h1>
+
+        <div class="toggle-button" id="toggleUpdateButton" onclick="toggleTable('updateContainer', 'toggleUpdateButton')" style="text-align: center; margin: 20px auto 0 auto; width: fit-content;">
+            업데이트 현황 [펼치기·접기]
+        </div>
+        
+        <div id="updateContainer" class="hidden">
+            <table id="mainTableupdate" style="border-collapse: collapse; width: 100%;">
+                <tr>
+                    <th style="width: 5%; text-align: center;">버전</th>
+                    <th style="width: 10%;">날짜</th>
+                    <th style="width: 85%;">내용</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.02</td>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.11.01</td>
+                    <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                        - 업데이트 현황 추가 및 구현<br>
+                        - 시설현황 시설 조사 데이터 적용<br>
+                        - 1.5 가경국민체육센터 시설안내 보기 좋게 구현<br>
+                        - 샤워기, 락커, 등 주차장과 동일하게 구현 필요<br>
+                        - 1.5 세부현황 및 이용안내 표 크기에 맞도록 구현 필요 창 크기에 따라 가로 세로 글자 배치 변경됨 고정 필요<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.03</td>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.11.02</td>
+                    <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                        - 샤워기, 락커 등 주차장과 동일하게 구현<br>
+                        - 가경국민체육센터 서식으로 변경 완료<br>
+                        - 행정 기술 하위분야 본문 작성<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">v1.04</td>
+                    <td style="text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">24.11.03</td>
+                    <td style="text-align: left; border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                        - 업데이트 테이블 td 구간별 실선 추가 적용<br>
+                        - 업데이트 테이블 펼치기 구현시 업데이트 현황과 표사이 간격 조정<br>
+                        - 표 테이블 th, td 글씨에 맞도록 표 길이 자동으로 조절되도록 적용<br>
+                        - 시설별 사진 크기 동일하게 나오도록 적용<br>
+                        - 통합 매뉴얼 메인 v1.04 종료<br>
+                        - 추가적인 개선 사항은 검토<br>
+                        - 매뉴얼 행정, 기술, 체육 매뉴얼 페이지 구현 시작<br>
+                        - 기술 매뉴얼(가경국민체육센터) 구현 중<br>
+                        - 매뉴얼\가경국민체육센터\skill1.html
+                </tr>
+                <tr>
+                    <td style="text-align: center;">1.05</td>
+                    <td style="text-align: center;">24.11.07</td>
+                    <td style="text-align: left;">
+                        <br>- 승강기, 정수기 내부 표 산입
+                        <br>- 복대 가경 화장실 변기 갯수 업데이트
+
+                </tr>
+                <tr>
+                    <td style="text-align: center;">1.07</td>
+                    <td style="text-align: center;">24.12.23</td>
+                    <td style="text-align: left;">
+                        <br>- 통합매뉴얼 스타일 변경 
+                </tr>
+            </table>
+        </div>
+
+        <div class="toggle-button" id="toggleFacilityButton" onclick="toggleTable('mainTable', 'toggleFacilityButton')" style="text-align: center; margin: 20px auto 0 auto; width: fit-content;">
+            시설현황 [펼치기·접기]
+        </div>
+
+            <table id="mainTable" class="hidden">
+                <tr>
+                    <th style="width: 4%;">분류</th>
+                    <th style="width: 9%;">시설</th>
+                    <th style="width: 13%;">사업위치</th>
+                    <th style="width: 8%;">연면적</th>
+                    <th style="width: 11%;">조명</th>
+                    <th style="width: 10%;">수영장(성인풀)</th>
+                    <th style="width: 13%;">수심</th>
+                    <th style="width: 10%;">수영장(유아풀)</th>
+                    <th style="width: 6%;">키제한</th>
+                    <th style="width: 8%;">다목적체육관</th>
+                    <th style="width: 8%;">기타</th>
+                </tr>
+                <tr onclick="toggleDetails(0)">
+                    <td>1</td>
+                    <td>청주수영장</td>
+                    <td>위치</td>
+                    <td>면적</td>
+                    <td>조명</td>
+                    <td>50m 10레인</td>
+                    <td>120cm-140cm(5레인)<br> 200cm(5레인)</td>
+                    <td>○</td>
+                    <td>140cm</td>
+                    <td>x</td>
+                    <td>헬스장</td>
+                </tr> 
+                <tr onclick="toggleDetails(1)">
+                    <td>2</td>
+                    <td>푸르미스포츠센터</td>
+                    <td>위치</td>
+                    <td>면적</td>
+                    <td>조명</td>
+                    <td>25m 6레인</td>
+                    <td>120cm-140cm(6레인)</td>
+                    <td>○</td>
+                    <td>140cm</td>
+                    <td>x</td>
+                    <td>헬스장<br> 찜질방</td>
+                </tr>
+                <tr onclick="toggleDetails(2)">
+                    <td>3</td>
+                    <td>영운국민체육센터</td>
+                    <td>위치</td>
+                    <td>면적</td>
+                    <td>조명</td>
+                    <td>25m 7레인</td>
+                    <td>140cm(5레인)<br> 120cm(2레인)</td>
+                    <td>○</td>
+                    <td>130cm</td>
+                    <td>○</td>
+                    <td>프로그램실</td>
+                </tr>
+                <tr onclick="toggleDetails(3)">
+                    <td>4</td>
+                    <td>복대국민체육센터</td>
+                    <td>흥덕구 복대동 288-23번지</td>
+                    <td>3,232.63㎡</td>
+                    <td>투광조명(300W) 16개<br>  수질현황 전광판</td>
+                    <td>25m 6레인<br> (약 500t)</td>
+                    <td>140cm(4레인)<br> 120cm(2레인)</td>
+                    <td>x</td>
+                    <td>130cm</td>
+                    <td>○</td>
+                    <td>프로그램실</td>
+                </tr> 
+                <tr onclick="toggleDetails(4)">
+                    <td>5</td>
+                    <td>가경국민체육센터</td>
+                    <td>흥덕구 가경동 2223번지</td>
+                    <td>3,200.00 ㎡</td>
+                    <td>투광조명(200W) 24개<br> 수질현황 전광판</td>
+                    <td>25m 6레인<br> (약 500t)</td>
+                    <td>120cm-140cm(3레인)<br> 100cm(3레인)</td>
+                    <td>x</td>
+                    <td>110cm</td>
+                    <td>○</td>
+                    <td>프로그램실</td>
+                </tr>  
+            </table>
+
+            <script>
+                function toggleTable(tableId, buttonId) {
+                    const table = document.getElementById(tableId);
+                    const button = document.getElementById(buttonId);
+            
+                    // Toggle the 'hidden' class on the table to show or hide it
+                    table.classList.toggle("hidden");
+            
+                    // Update the button text based on the table's visibility
+                    if (table.classList.contains("hidden")) {
+                        button.textContent = buttonId === "toggleUpdateButton" ? "업데이트 현황 [펼치기·접기]" : "시설현황 [펼치기·접기]";
+                    } else {
+                        button.textContent = buttonId === "toggleUpdateButton" ? "업데이트 현황 [펼치기·접기]" : "시설현황 [펼치기·접기]";
+                    }
+                }
+            </script>
+            
+
+            <h2 id="section1" onclick="toggleSection('sisul')" style="margin-top: 20px;">1. 시설</h2>
+<ul style="list-style-type: none; padding-left: 0;">
+    <li class="underline" style="margin-left: 20px;">
+        <h3 id="section1-1" onclick="toggleSection('cheongju1')" style="cursor: pointer;">
+            <span class="arrow collapsed">></span> 1.1. 청주수영장
+        </h3>
+
+        <!-- 펼치기/접기 내용 영역 -->
+        <div id="cheongju1" class="content hidden" style="margin-left: 20px;">
+
+            <!-- 상위 테이블 -->
+            <table style="width: 100%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                <tr>
+                    <th style="border: 1px solid #ccc; width: 7%; text-align: center;">세부현황</th> <!-- 글씨를 가운데 정렬 -->
+                    <td>
+                                <div id="detailTable0" class="details">
+                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">청주수영장</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; width: 90%;"> <!-- 사진을 가운데 정렬 -->
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; text-align: center; width: 10%;">사진</th> <!-- 사진 타이틀을 가운데 정렬 -->
+                                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        
+                                                            <div class="image-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                                        <!-- 1, 2, 3번 사진 한 줄에 배치 -->
+                                                        <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\청주수영장 시설1.jpg" alt="청주수영장 사진 1" style="width: 30%; margin: 5px;">
+                                                        <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\청주수영장 시설2.jpg" alt="청주수영장 사진 2" style="width: 30%; margin: 5px;">
+                                                        <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\청주수영장 시설3.jpg" alt="청주수영장 사진 3" style="width: 30%; margin: 5px;">
+                                                        <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\청주수영장 시설4.jpg" alt="청주수영장 사진 4" style="width: 30%; margin: 5px;">
+                                                        <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\청주수영장 시설5.jpg" alt="청주수영장 사진 5" style="width: 30%; margin: 5px;">
+                                                        
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; white-space: nowrap; text-align: center; width: 10%; font-weight: bold;">주차장</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                            <table style="width: 100%; border-collapse: collapse; margin: 0; text-align: center;">
+                                            <tr>
+                                                <th style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                <th style="border: 1px solid #ccc; text-align: center;">대수</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">일반</td>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">장애인</td>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">전기차</td>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                            </tr>
+                                            </table>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">샤워기</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                        <tr>
+                                                            <th class="same-width" style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                            <th class="same-width" style="border: 1px solid #ccc; text-align: center;">개</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">샤워장(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">샤워장(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">가족실(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">합계</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                    </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">락커</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th class="same-width" style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                    <th class="same-width" style="border: 1px solid #ccc; text-align: center;">?개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 탈의실(남)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">118(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 탈의실(여)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">158(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 가족실</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">6(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실(남)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">16(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실(여)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">16(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실 신발장(남)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">18</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실 신발장(여)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">18</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">합계</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">344</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">화장실</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th class="same-width" style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                    <th class="same-width" style="border: 1px solid #ccc; text-align: center;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">1층 소변기</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">1층 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">1층 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">3(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 소변기</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">2층 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc; text-align: center;">3(장애인:1)</td>
+                                                </tr>
+                                            </table>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">승강기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                            1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">정수기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">1
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">이용안내</th>
+                            <td style="border: 1px solid #ccc; text-align: center; vertical-align: top;">
+                                <img src="C:\매뉴얼\시설 안내\청주수영장 이용안내1.jpg" alt="이용안내 이미지 1" style="width: auto; height: auto; display: block; margin-bottom: 10px;">
+                                <img src="C:\매뉴얼\시설 안내\청주수영장 이용안내2.jpg" alt="이용안내 이미지 2" style="width: auto; height: auto; display: block;">
+                            </td>
+                        </tr>
+                    </tr>
+                </table>
+                    <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                </div>
+            </li>
+        </ul>
+    
+        <script>
+            function toggleSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                var arrow = section.previousElementSibling.querySelector('.arrow');
+                var isExpanded = section.style.display === "block";
+
+            if (isExpanded) {
+            section.style.display = "none";
+            arrow.classList.remove('expanded');
+            arrow.classList.add('collapsed');
+            } else {
+            section.style.display = "block";
+            arrow.classList.remove('collapsed');
+            arrow.classList.add('expanded');
+            }
+            }
+        </script>
+        <style>
+                .content.hidden {
+                    display: none; /* 내용이 숨겨지도록 설정 */
+                }
+            
+                .arrow {
+                    display: inline-block;
+                    transition: transform 0.3s ease;
+                }
+            
+                .collapsed {
+                    transform: rotate(0deg); /* 오른쪽 화살표 */
+                }
+            
+                .expanded {
+                    transform: rotate(90deg); /* 아래쪽 화살표 */
+                }
+            </style>
+            
+    
+    
+
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section1-2" onclick="toggleSection('purmi1')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 1.2. 푸르미스포츠센터
+                </h3>    
+                
+                <!-- 펼치기/접기 내용 영역 -->
+                <div id="purmi1" class="content hidden" style="margin-left: 20px;">
+                    <!-- 푸르미스포츠센터에 대한 자세한 내용이 여기에 표시됩니다. -->
+                    <table style="width: 100%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 7%; text-align: center;">세부현황</th> <!-- 글씨를 가운데 정렬 -->
+                            <td>
+                                <div id="detailTable0" class="details">
+                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; white-space: nowrap; text-align: center; width: 11%; font-weight: bold; max-width: 100%; overflow: hidden; text-overflow: ellipsis;">
+                                                푸르미스포츠센터
+                                            </td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; width: 90%;"> <!-- 사진을 가운데 정렬 -->
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; text-align: center; width: 10%;">사진</th> <!-- 사진 타이틀을 가운데 정렬 -->
+                                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        
+                                                            <div class="image-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설1.jpg" alt="푸르미스포츠센터 사진 1" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설2.jpg" alt="푸르미스포츠센터 사진 2" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설3.jpg" alt="푸르미스포츠센터 사진 3" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설4.jpg" alt="푸르미스포츠센터 사진 4" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설5.jpg" alt="푸르미스포츠센터 사진 5" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설6.jpg" alt="푸르미스포츠센터 사진 6" style="width: 30%; margin: 5px;">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">주차장</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px;">
+                                                <table style="width: 100%; border-collapse: collapse; margin: 0; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                        <th style="border: 1px solid #ccc; text-align: center;">대수</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">일반</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">장애인</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">전기차</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">?</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">샤워기</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px;">
+                                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                        <tr>
+                                                            <th style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                            <th style="border: 1px solid #ccc; text-align: center;">개</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">샤워장(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">샤워장(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">가족실(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">합계</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">?</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">락커</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px;">
+                                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                        <tr>
+                                                            <th style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                            <th style="border: 1px solid #ccc; text-align: center;">?개</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 탈의실(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">118(장애인 락커:2)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 탈의실(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">158(장애인 락커:2)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 가족실</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">6(장애인 락커:2)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">16(장애인 락커:2)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">16(장애인 락커:2)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실 신발장(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">18</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">4층 탈의실 신발장(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">18</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">합계</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">344</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">화장실</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px;">
+                                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                        <tr>
+                                                            <th style="border: 1px solid #ccc; width: 30%; text-align: center;">구분</th>
+                                                            <th style="border: 1px solid #ccc; text-align: center;">개</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">1층 소변기</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">1층 대변기(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2(장애인:1)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">1층 대변기(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">3(장애인:1)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 소변기</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 대변기(남)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2(장애인:1)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">2층 대변기(여)</td>
+                                                            <td style="border: 1px solid #ccc; text-align: center;">3(장애인:1)</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        <tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">승강기</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                                    1
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">정수기</td>
+                                                <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">3
+                                                </td>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">이용안내</th>
+                            <td style="border: 1px solid #ccc; text-align: center; vertical-align: top;">
+                                <img src="C:\매뉴얼\시설 안내\푸르미스포츠센터 이용안내1.jpg" alt="이용안내 이미지 1" style="width: auto; height: auto; display: block; margin-bottom: 10px;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\푸르미스포츠센터 시설안내2.jpg" alt="이용안내 이미지 2" style="width: auto; height: auto; display: block;">
+                            </td>
+                        </tr>
+                    </tr>
+                </table>
+                    <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                </div>
+
+            </li>
+        </ul>  
+    
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section1-3" onclick="toggleSection('Young1')" style="cursor: pointer;"> <!-- h3 id="변경필요" / onclick="toggleSection('변경필요')-->
+                <span class="arrow collapsed">></span> 1.3. 영운국민체육센터
+                </h3>    
+
+                                <!-- 펼치기/접기 내용 영역 -->
+                <div id="Young1" class="content hidden" style="margin-left: 20px;">  <!-- id=변경필요. -->
+                <!-- 영운국민체육센터 대한 자세한 내용이 여기에 표시됩니다. -->
+                <table style="width: 100%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                    <tr>
+                        <th style="border: 1px solid #ccc; width: 7%; text-align: center;">세부현황</th>
+                        <td>
+                            <div id="detailTable0" class="details">
+                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; white-space: nowrap; text-align: center; width: 11%; font-weight: bold; max-width: 100%; overflow: hidden; text-overflow: ellipsis;">영운국민체육센터</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; width: 90%;"> <!-- 사진을 가운데 정렬 -->
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; text-align: center; width: 10%;">사진</th> <!-- 사진 타이틀을 가운데 정렬 -->
+                                                    <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+    
+                                                        <div class="image-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설1.jpg" alt="영운국민체육센터 사진 1" style="width: 30%; margin: 5px;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설2.jpg" alt="영운국민체육센터 사진 2" style="width: 30%; margin: 5px;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설3.jpg" alt="영운국민체육센터 사진 3" style="width: 30%; margin: 5px;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설4.jpg" alt="영운국민체육센터 사진 4" style="width: 30%; margin: 5px;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설5.jpg" alt="영운국민체육센터 사진 5" style="width: 30%; margin: 5px;">
+                                                            <img src="C:\매뉴얼\시설 안내\영운국민체육센터 시설6.jpg" alt="영운국민체육센터 사진 6" style="width: 30%; margin: 5px;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">주차장</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th style="border: 1px solid #ccc;">대수</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">일반</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">31</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">장애인</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">전기차</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">주차면수 50면 이상 의무설치 대상으로 해당없음</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">33</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">샤워기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th style="border: 1px solid #ccc;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">샤워장(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">23</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">샤워장(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">43</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">가족실(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">56</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">락커</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th style="border: 1px solid #ccc;">?개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 탈의실(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">118(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 탈의실(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">158(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 가족실</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">6(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">16(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">16(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실 신발장(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">18</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실 신발장(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">18</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">344</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">화장실</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th style="border: 1px solid #ccc;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 소변기</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">3(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 소변기</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">3(장애인:1)</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">승강기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+                                            1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">정수기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">1
+                                        </td>
+                                    </tr>                                                       
+                                </td>
+                                </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">이용안내</th>
+                            <td style="border: 1px solid #ccc; text-align: center; vertical-align: top;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\영운국민체육센터 이용안내1.jpg" alt="이용안내 이미지 1" style="width: auto; height: auto; display: block; margin-bottom: 10px;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\영운국민체육센터 이용안내2.jpg" alt="이용안내 이미지 2" style="width: auto; height: auto; display: block;">
+                            </td>
+                        </tr>
+                    </tr>
+                </table>
+                    <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                </div>
+
+            </li>
+        </ul>  
+    
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section1-4" onclick="toggleSection('Bokdae1')" style="cursor: pointer;"> <!-- h3 id="변경필요" / onclick="toggleSection('변경필요')-->
+                <span class="arrow collapsed">></span> 1.4. 복대국민체육센터
+                </h3>    
+
+                                <!-- 펼치기/접기 내용 영역 -->
+                <div id="Bokdae1" class="content hidden" style="margin-left: 20px;">
+                    <!-- 상위 테이블 -->
+                    <table style="width: 100%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">세부현황</th>
+                            <td>
+                                <div id="detailTable0" class="details">
+                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; white-space: nowrap; text-align: center; width: 11%; font-weight: bold; max-width: 100%; overflow: hidden; text-overflow: ellipsis;">복대국민체육센터</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; width: 90%;"> <!-- 사진을 가운데 정렬 -->
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; text-align: center; width: 10%;">사진</th> <!-- 사진 타이틀을 가운데 정렬 -->
+                                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        
+                                                            <div class="image-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설1.jpg" alt="복대국민체육센터 사진 1" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설2.jpg" alt="복대국민체육센터 사진 2" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설3.jpg" alt="복대국민체육센터 사진 3" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설4.jpg" alt="복대국민체육센터 사진 4" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설5.jpg" alt="복대국민체육센터 사진 5" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 시설6.jpg" alt="복대국민체육센터 사진 6" style="width: 30%; margin: 5px;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">주차장</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 60%; border-collapse: collapse; margin: 0; text-align: center;">
+                                                <tr>
+                                                    <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th style="border: 1px solid #ccc;">대수</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">일반</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">44</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">버스</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">전기차</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">장애인</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">배려석</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">합계</td>
+                                                    <td style="border: 1px solid #ccc; padding: 5px;">55</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">샤워기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 60%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th class="same-width" style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th class="same-width" style="border: 1px solid #ccc;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">샤워장(남) / 탈수기</td>
+                                                    <td style="border: 1px solid #ccc;">20 / 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">샤워장(여) / 탈수기</td>
+                                                    <td style="border: 1px solid #ccc;">31 / 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">가족실</td>
+                                                    <td style="border: 1px solid #ccc;">2</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">락커</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 60%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th class="same-width" style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th class="same-width" style="border: 1px solid #ccc;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">탈의실(남)</td>
+                                                    <td style="border: 1px solid #ccc;">176(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">탈의실(여)</td>
+                                                    <td style="border: 1px solid #ccc;">254(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">가족실</td>
+                                                    <td style="border: 1px solid #ccc;">4(장애인 락커:2)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">2층 프로그램실</td>
+                                                    <td style="border: 1px solid #ccc;">16(장애인 락커:2)</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">화장실</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px;">
+                                            <table style="width: 60%; border-collapse: collapse; text-align: center;">
+                                                <tr>
+                                                    <th class="same-width" style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                    <th class="same-width" style="border: 1px solid #ccc;">개</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 로비 소변기</td>
+                                                    <td style="border: 1px solid #ccc;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 로비 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc;">2(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 로비 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc;">4(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 탈의실 소변기</td>
+                                                    <td style="border: 1px solid #ccc;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 탈의실 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc;">1(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">1층 탈의실 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc;">1(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">2층 소변기</td>
+                                                    <td style="border: 1px solid #ccc;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">2층 대변기(남)</td>
+                                                    <td style="border: 1px solid #ccc;">1(장애인:1)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1px solid #ccc;">2층 대변기(여)</td>
+                                                    <td style="border: 1px solid #ccc;">3(장애인:1)</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">승강기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">13인승 1대
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">정수기</td>
+                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">1
+                                        </td>
+                                    </tr>   
+                                               
+                                            
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">이용안내</th>
+                            <td style="border: 1px solid #ccc; text-align: center; vertical-align: top;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 이용안내1.jpg" alt="이용안내 이미지 1" " style="width: auto; height: auto; display: block; margin-bottom: 10px;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\복대국민체육센터 이용안내2.jpg" alt="이용안내 이미지 2" style="width: auto; height: auto; display: block;">
+                            </td>
+                        </tr>
+                    </tr>
+                </table>
+                    <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                </div>
+
+            </li>
+        </ul> 
+
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section1-5" onclick="toggleSection('Gagyeong1')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 1.5. 가경국민체육센터
+                </h3>
+        
+                <!-- 펼치기/접기 내용 영역 -->
+                <div id="Gagyeong1" class="content hidden" style="margin-left: 20px; white-space: nowrap;">
+                    
+                    <!-- 상위 테이블 -->
+                    <table style="width: 100%; margin: 0; border-collapse: collapse; text-align: center; font-size: 18px; white-space: nowrap;">
+                        <tr>
+                            <th style="border: 1px solid #ccc; width: 10%; text-align: center;">세부현황</th>
+                            <td>
+                                <div id="detailTable0" class="details">
+                                    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; white-space: nowrap; text-align: center; width: 11%; font-weight: bold; max-width: 100%; overflow: hidden; text-overflow: ellipsis;">가경국민체육센터</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; width: 90%;"> <!-- 사진을 가운데 정렬 -->
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; text-align: center; width: 10%;">사진</th> <!-- 사진 타이틀을 가운데 정렬 -->
+                                                        <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        
+                                                            <div class="image-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설1.jpg" alt="가경국민체육센터 사진 1" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설2.jpg" alt="가경국민체육센터 사진 2" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설3.jpg" alt="가경국민체육센터 사진 3" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설4.jpg" alt="가경국민체육센터 사진 4" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설5.jpg" alt="가경국민체육센터 사진 5" style="width: 30%; margin: 5px;">
+                                                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 시설6.jpg" alt="가경국민체육센터 사진 6" style="width: 30%; margin: 5px;">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">주차장</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px;">
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                        <th style="border: 1px solid #ccc;">대수</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">일반</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">31</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">장애인</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">전기차</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">주차면수 50면 이상 의무설치 대상으로 해당없음</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">33</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">샤워기</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px;">
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                        <th style="border: 1px solid #ccc;">개</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">샤워장(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">샤워장(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">43</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">가족실(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">56</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">락커</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px;">
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                        <th style="border: 1px solid #ccc;">?개</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 탈의실(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">118(장애인 락커:2)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 탈의실(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">158(장애인 락커:2)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 가족실</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">6(장애인 락커:2)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">16(장애인 락커:2)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">16(장애인 락커:2)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실 신발장(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">18</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 탈의실 신발장(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">18</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">합계</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">344</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">화장실</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px;">
+                                                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+                                                    <tr>
+                                                        <th style="border: 1px solid #ccc; width: 30%;">구분</th>
+                                                        <th style="border: 1px solid #ccc;">개</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 소변기</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 대변기(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2(장애인:1)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">1층 대변기(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">3(장애인:1)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 소변기</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 대변기(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">3(장애인:1)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">2층 대변기(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">5(장애인:1)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 소변기</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">3</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 대변기(남)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4(장애인:1)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">4층 대변기(여)</td>
+                                                        <td style="border: 1px solid #ccc; padding: 5px; text-align: center;">7(장애인:1)</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">승강기</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">13인승 1대
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center; font-weight: bold;">정수기</td>
+                                            <td style="border: 1px solid #ccc; padding: 10px; text-align: center;">7대
+                                            </td>
+                                        </tr>    
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </td>
+                            <tr>
+                                <th style="border: 1px solid #ccc; width: 10%; text-align: center;">이용안내</th>
+                            <td style="border: 1px solid #ccc; text-align: center; vertical-align: top;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 이용안내1.jpg" alt="이용안내 이미지 1" " style="width: auto; height: auto; display: block; margin-bottom: 10px;">
+                                <img src="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\시설 안내\가경국민체육센터 이용안내2.jpg" alt="이용안내 이미지 2" style="width: auto; height: auto; display: block;">
+                                </td>
+                            </tr>
+                        </tr>
+                    </table>
+                    
+                    <!-- 원하는 추가 콘텐츠를 여기에 추가 -->
+                </div>
+
+            </li>
+        </ul>
+        </h2>                 
+
+        <h2 id="section2" onclick="toggleSection('manual2')">2. 매뉴얼</h2>
+
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section2-1" onclick="toggleSection('admin0')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 2.1. 행정
+                </h3>
+        
+                <!-- 펼치기/접기 내용 영역 -->
+                <div id="admin0" class="content hidden" style="margin-left: 20px;">
+                    <!-- 청주수영장에 대한 자세한 내용이 여기에 표시됩니다. -->
+                    <tr>
+                        <td>
+                            <p style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.1. <a href="#" style="display: inline-flex; align-items: center;">청주수영장 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.2. <a href="#" style="display: inline-flex; align-items: center;">푸르미스포츠센터 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.3. <a href="#" style="display: inline-flex; align-items: center;">영운국민체육센터 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.4. <a href="#" style="display: inline-flex; align-items: center;">복대국민체육센터 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.5. <a href="#" style="display: inline-flex; align-items: center;">가경국민체육센터 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.1.6. <a href="#" style="display: inline-flex; align-items: center;">공통 행정분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                        </td>
+                    </tr>
+                </div>
+            </li>
+        </ul>
+        
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section2-2" onclick="toggleSection('tech0')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 2.2. 기술
+                </h3>
+        
+                <!-- 펼치기/접기 내용 영역 -->
+                <div id="tech0" class="content hidden" style="margin-left: 20px;">
+                    <!-- 청주수영장에 대한 자세한 내용이 여기에 표시됩니다. -->
+                    <tr>
+                        <td>
+                            <p style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.2.1. <a href="#" style="display: inline-flex; align-items: center;" onclick="location.href='tech2.html';">청주수영장 기술분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.2.2. <a href="#" style="display: inline-flex; align-items: center;">푸르미스포츠센터 기술분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.2.3. <a href="#" style="display: inline-flex; align-items: center;">영운국민체육센터 기술분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.2.4. <a href="#" style="display: inline-flex; align-items: center;">복대국민체육센터 기술분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                            <p style="display: flex; align-items: center;">
+                                <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                2.2.5. <a href="C:\Users\best\Desktop\공유폴더\2. 기술분야\21. 매뉴얼\매뉴얼\매뉴얼\가경국민체육센터\manual 2_2_5 v1.1.html" style="display: inline-flex; align-items: center;">가경국민체육센터 기술분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                            </p>
+                        </td>
+                    </tr>
+                </div>
+            </li>
+        </ul>
+
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-left: 20px;">
+                <h3 id="section2-2" onclick="toggleSection('Physical0')" style="cursor: pointer;">
+                    <span class="arrow collapsed">></span> 2.3. 체육
+                </h3>
+        
+                <!-- 펼치기/접기 내용 영역 -->
+                <div id="Physical0" class="content hidden" style="margin-left: 20px;">
+                    <!-- 청주수영장에 대한 자세한 내용이 여기에 표시됩니다. -->
+                    <tr>
+                            <td>
+                                <p style="display: inline-flex; align-items: center;">
+                                    <img src="C:\매뉴얼\아이콘\연결문서 표시.png" alt="info icon" class="info-icon" style="margin: 0 5px 0 0; vertical-align: middle;">
+                                    <a href="#" style="display: flex; align-items: center;" onclick="location.href='tech2.html';">체육분야</a>를 클릭하면 해당 매뉴얼 페이지로 이동합니다.
+                                </p>
+                            </td>
+                        </tr>
+                </div>
+            </li>
+        </ul>
+        <h2 id="section3" onclick="toggleSection('voc')">3. VOC</h2>
+    </div>
+</div>
+
 </body>
 </html>
